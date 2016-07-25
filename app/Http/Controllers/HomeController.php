@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use App\Photo;
+
 class HomeController extends Controller {
 
 	/*
@@ -34,7 +36,8 @@ class HomeController extends Controller {
 	}
 
 	public function homepage() {
-		return view('homepage');
+		$photos = Photo::all();
+		return view('homepage')->with('photos', $photos);
 	}
 
 }
