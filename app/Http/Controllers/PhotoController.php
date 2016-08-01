@@ -55,4 +55,15 @@ class PhotoController extends Controller {
 
 		return redirect('mylove');
 	}
+
+	function getManage () {
+		return redirect('mylove');
+	}
+
+	function getDelete(Request $request) {
+		$id = $request->input('id');
+		$photo = Photo::find($id);
+		$photo->delete();
+		return redirect('mylove');
+	}
 }

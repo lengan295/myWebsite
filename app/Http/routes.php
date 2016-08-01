@@ -18,7 +18,12 @@ Route::get('home', 'HomeController@index');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
-	'photo' => 'PhotoController',
 ]);
 
-Route::get('mylove', 'HomeController@homepage');
+Route::group(['prefix' => 'mylove'], function() {
+	Route::get('/', 'HomeController@homepage');
+	Route::controllers([
+		'photo' => 'PhotoController',
+	]);
+
+});
