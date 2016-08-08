@@ -3,7 +3,8 @@
 		<title>Le Ngan</title>
 		
 		<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
-
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
+		
 		<style>
 			body {
 				margin: 0;
