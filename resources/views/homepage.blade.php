@@ -3,32 +3,31 @@
 @section('style')
 	<style>
         
-        /* jssor slider bullet navigator skin 01 css */
+        /* jssor slider bullet navigator skin 13 css */
         /*
-        .jssorb01 div           (normal)
-        .jssorb01 div:hover     (normal mouseover)
-        .jssorb01 .av           (active)
-        .jssorb01 .av:hover     (active mouseover)
-        .jssorb01 .dn           (mousedown)
+        .jssorb13 div           (normal)
+        .jssorb13 div:hover     (normal mouseover)
+        .jssorb13 .av           (active)
+        .jssorb13 .av:hover     (active mouseover)
+        .jssorb13 .dn           (mousedown)
         */
-        .jssorb01 {
+        .jssorb13 {
             position: absolute;
         }
-        .jssorb01 div, .jssorb01 div:hover, .jssorb01 .av {
+        .jssorb13 div, .jssorb13 div:hover, .jssorb13 .av {
             position: absolute;
             /* size of bullet elment */
-            width: 12px;
-            height: 12px;
-            filter: alpha(opacity=70);
-            opacity: .7;
+            width: 21px;
+            height: 21px;
+            background: url('img/b13.png') no-repeat;
             overflow: hidden;
             cursor: pointer;
-            border: #000 1px solid;
         }
-        .jssorb01 div { background-color: gray; }
-        .jssorb01 div:hover, .jssorb01 .av:hover { background-color: #d3d3d3; }
-        .jssorb01 .av { background-color: #fff; }
-        .jssorb01 .dn, .jssorb01 .dn:hover { background-color: #555555; }
+        .jssorb13 div { background-position: -5px -5px; }
+        .jssorb13 div:hover, .jssorb13 .av:hover { background-position: -35px -5px; }
+        .jssorb13 .av { background-position: -65px -5px; }
+        .jssorb13 .dn, .jssorb13 .dn:hover { background-position: -95px -5px; }
+
 
         /* jssor slider arrow navigator skin 02 css */
         /*
@@ -60,13 +59,13 @@
 
 @section('content')
 <div class="container">
-	<div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden; visibility: hidden;">
+	<div id="jssor_1" style="background-color: black; position: relative; margin: 0 auto; top: 0px; left: 0px; width: 640px; height: 480px; overflow: hidden; visibility: hidden;">
         <!-- Loading Screen -->
         <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
             <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
             <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
         </div>
-        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden;">
+        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 640px; height: 480px; overflow: hidden;">
             
             <!-- https://docs.google.com/uc?id=FILE-ID -->
             @foreach($photos as $i => $photo)
@@ -77,13 +76,11 @@
             </div>
 
             @endforeach
-
-            <a data-u="add" href="http://www.jssor.com" style="display:none">Jssor Slider</a>
         
         </div>
         <!-- Bullet Navigator -->
-        <div data-u="navigator" class="jssorb01" style="bottom:16px;right:16px;">
-            <div data-u="prototype" style="width:12px;height:12px;"></div>
+        <div data-u="navigator" class="jssorb13" style="bottom:16px;right:16px;" data-autocenter="1">
+            <div data-u="prototype" style="width:21px;height:21px;"></div>
         </div>
         <!-- Arrow Navigator -->
         <span data-u="arrowleft" class="jssora02l" style="top:0px;left:8px;width:55px;height:55px;" data-autocenter="2"></span>
@@ -115,6 +112,7 @@
             var jssor_1_options = {
               $AutoPlay: true,
               $Idle: 2000,
+              $FillMode: 5,
               $CaptionSliderOptions: {
                 $Class: $JssorCaptionSlideo$,
                 $Transitions: jssor_1_SlideoTransitions,
@@ -137,7 +135,7 @@
             function ScaleSlider() {
                 var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
                 if (refSize) {
-                    refSize = Math.min(refSize, 600);
+                    refSize = Math.min(refSize, 640);
                     jssor_1_slider.$ScaleWidth(refSize);
                 }
                 else {
