@@ -97,16 +97,19 @@ jQuery(document).ready(function ($) {
 
     $('a.remove-photo').click(function(e){
         event.preventDefault(); 
-        var item = $(this).closest('.photo-list-item');
-        $.ajax({
-        url: $(this).attr('href'),
-        success: function(response) {
-            if(response == "ok") {
-                item.fadeOut();
-                reloadSlider();
+        var r = confirm("Are you sure to remove this photo?");
+        if (r == true) {
+            var item = $(this).closest('.photo-list-item');
+            $.ajax({
+            url: $(this).attr('href'),
+            success: function(response) {
+                if(response == "ok") {
+                    item.fadeOut();
+                    reloadSlider();
+                }
             }
+            });
         }
-        });
         return false; //for good measure
     });
 });
