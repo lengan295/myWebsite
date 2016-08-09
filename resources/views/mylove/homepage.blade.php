@@ -1,6 +1,11 @@
 @extends('app')
 
+@section('title')
+My Love
+@endsection
+
 @section('style')
+    <link href="{{ asset('/css/mylove.app.css') }}" rel="stylesheet">
 	<style>
         
         /* jssor slider bullet navigator skin 13 css */
@@ -91,6 +96,10 @@
           </div>
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
+    </div>
+    <!-- /Add photo Form -->
+    <div id="photolist" class="col-lg-6 col-lg-offset-3" style="padding-bottom: 100px">
+        @include('mylove/photoList',['photos'=>$photos])
     </div>
 </div>
 @endsection

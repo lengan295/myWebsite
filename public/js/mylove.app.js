@@ -93,5 +93,20 @@ jQuery(document).ready(function ($) {
         this.reset();
         $("html, body").animate({ scrollTop: 0 }, "slow");
 
-    });   
+    });  
+
+    $('a.remove-photo').click(function(e){
+        event.preventDefault(); 
+        var item = $(this).closest('.photo-list-item');
+        $.ajax({
+        url: $(this).attr('href'),
+        success: function(response) {
+            if(response == "ok") {
+                item.fadeOut();
+                reloadSlider();
+            }
+        }
+        });
+        return false; //for good measure
+    });
 });

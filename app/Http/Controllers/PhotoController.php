@@ -71,6 +71,9 @@ class PhotoController extends Controller {
 		$id = $request->input('id');
 		$photo = Photo::find($id);
 		$photo->delete();
+		if($request->ajax()) {
+			return 'ok';
+		}
 		return redirect('mylove');
 	}
 }
