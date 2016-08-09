@@ -37,7 +37,11 @@ class HomeController extends Controller {
 
 	public function homepage() {
 		$photos = Photo::all();
-		return view('homepage')->with('photos', $photos);
+		return view('mylove/homepage')->with('photos', $photos);
 	}
 
+	public function slider() {
+		$photos = Photo::all();
+		return view('mylove/slider')->with('photos', $photos);
+	}
 }

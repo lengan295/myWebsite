@@ -27,7 +27,7 @@ class PhotoController extends Controller {
 	}
 
 	public function getAdd() {
-		return view('addphoto');
+		return view('mylove/addphoto');
 	}
 
 	public function postAdd(Request $request) {
@@ -50,9 +50,16 @@ class PhotoController extends Controller {
 
 		$photo = new Photo;
 		$photo->url = $url;
-		$photo->caption = $caption;
+		if($caption!="") {
+			$photo->caption = $caption;
+			$photo->style = $request->input('style');
+		}
 		$photo->save();
 
+		if($request->ajax()) {
+			// return view('mylove/singleSlide')->with('photo', $photo);
+			return "ok";
+		}
 		return redirect('mylove');
 	}
 

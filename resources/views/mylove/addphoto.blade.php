@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container">
-	<form role="form" method="POST" action="{{url('/photo/add')}}">
+	<form role="form" method="POST" action="{{url('/mylove/photo/add')}}">
 	  <input type="hidden" name="_token" value="{{ csrf_token() }}">
 	  <div class="form-group">
 	    <label for="url">Photo's URL:</label>

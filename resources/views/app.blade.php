@@ -7,6 +7,7 @@
 	<title>Laravel</title>
 
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
 	
 	@yield('style')
 	

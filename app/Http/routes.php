@@ -22,6 +22,8 @@ Route::controllers([
 
 Route::group(['prefix' => 'mylove'], function() {
 	Route::get('/', 'HomeController@homepage');
+	Route::get('slider', 'HomeController@slider');
+	
 	Route::controllers([
 		'photo' => 'PhotoController',
 	]);
